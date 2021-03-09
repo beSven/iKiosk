@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="1.0.0-data-users" author="Sven Berthold">
+        <insert tableName="USERS">
+            <column name="ID" value="987123654"/>
+            <column name="UUID" value="987123654"/>
+            <column name="FIRST_NAME" value="besven"/>
+            <column name="LAST_NAME" value="Kasse"/>
+            <column name="USERNAME" value="itke"/>
+            <column name="ADMIN" valueBoolean="true"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="PIN" value="987123"/>
+        </insert>
+        <insert tableName="USERS">
+            <column name="ID" valueNumeric="1"/>
+            <column name="UUID" value="1"/>
+            <column name="FIRST_NAME" value="Sven"/>
+            <column name="LAST_NAME" value="Berthold"/>
+            <column name="USERNAME" value="sbd"/>
+            <column name="ADMIN" valueBoolean="true"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="PIN" value="1234"/>
+        </insert>
+        <insert tableName="USERS">
+            <column name="ID" valueNumeric="2"/>
+            <column name="UUID" value="2"/>
+            <column name="FIRST_NAME" value="Max"/>
+            <column name="LAST_NAME" value="Muster"/>
+            <column name="USERNAME" value="mmr"/>
+            <column name="ADMIN" valueBoolean="false"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="PIN" value="2222"/>
+        </insert>
+        <insert tableName="USERS">
+            <column name="ID" valueNumeric="3"/>
+            <column name="UUID" value="3"/>
+            <column name="FIRST_NAME" value="Achim"/>
+            <column name="LAST_NAME" value="Achimsen"/>
+            <column name="USERNAME" value="aan"/>
+            <column name="ADMIN" valueBoolean="false"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="PIN" value="3333"/>
+        </insert>
+        <insert tableName="USERS">
+            <column name="ID" valueNumeric="4"/>
+            <column name="UUID" value="4"/>
+            <column name="FIRST_NAME" value="Heinz"/>
+            <column name="LAST_NAME" value="Biernot"/>
+            <column name="USERNAME" value="hbt"/>
+            <column name="ADMIN" valueBoolean="false"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="PIN" value="4444"/>
+        </insert>
+        <insert tableName="USERS">
+            <column name="ID" valueNumeric="5"/>
+            <column name="UUID" value="5"/>
+            <column name="FIRST_NAME" value="Frodo"/>
+            <column name="LAST_NAME" value="Beutlin"/>
+            <column name="USERNAME" value="fbn"/>
+            <column name="ADMIN" valueBoolean="false"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="PIN" value="5555"/>
+        </insert>
+        <insert tableName="USERS">
+            <column name="ID" valueNumeric="6"/>
+            <column name="UUID" value="6"/>
+            <column name="FIRST_NAME" value="Harry"/>
+            <column name="LAST_NAME" value="Potter"/>
+            <column name="USERNAME" value="hpr"/>
+            <column name="ADMIN" valueBoolean="true"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="PIN" value="6666"/>
+        </insert>
+        <insert tableName="USERS">
+            <column name="ID" valueNumeric="7"/>
+            <column name="UUID" value="7"/>
+            <column name="FIRST_NAME" value="Tom"/>
+            <column name="LAST_NAME" value="Riddle"/>
+            <column name="USERNAME" value="tre"/>
+            <column name="ADMIN" valueBoolean="false"/>
+            <column name="ACTIVE" valueBoolean="false"/>
+
+        </insert>
+    </changeSet>
+</databaseChangeLog>

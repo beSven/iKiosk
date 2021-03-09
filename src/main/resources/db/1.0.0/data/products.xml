@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="1.0.0-data-products" author="Sven Berthold">
+        <insert tableName="PRODUCTS">
+            <column name="ID" valueNumeric="1"/>
+            <column name="UUID" value="1"/>
+            <column name="PRODUCT_NAME" value="Knoppers"/>
+            <column name="DESCRIPTION" value="Snack"/>
+            <column name="COST" value="0.59"/>
+            <column name="PRICE" value="0.90"/>
+            <column name="TOTAL" value="10"/>
+        </insert>
+        <insert tableName="PRODUCTS">
+            <column name="ID" valueNumeric="2"/>
+            <column name="UUID" value="2"/>
+            <column name="PRODUCT_NAME" value="Club Mate"/>
+            <column name="DESCRIPTION" value="Getraenk"/>
+            <column name="COST" value="0.89"/>
+            <column name="PRICE" value="1.20"/>
+            <column name="TOTAL" value="20"/>
+        </insert>
+        <insert tableName="PRODUCTS">
+            <column name="ID" valueNumeric="3"/>
+            <column name="UUID" value="3"/>
+            <column name="PRODUCT_NAME" value="HANUTA"/>
+            <column name="DESCRIPTION" value="Snack"/>
+            <column name="COST" value="0.59"/>
+            <column name="PRICE" value="0.90"/>
+            <column name="TOTAL" value="3"/>
+        </insert>
+        <insert tableName="PRODUCTS">
+            <column name="ID" valueNumeric="4"/>
+            <column name="UUID" value="4"/>
+            <column name="PRODUCT_NAME" value="Kolle Mate"/>
+            <column name="DESCRIPTION" value="Getraenk"/>
+            <column name="COST" value="1.40"/>
+            <column name="PRICE" value="1.90"/>
+            <column name="TOTAL" value="3"/>
+        </insert>
+        <insert tableName="PRODUCTS">
+            <column name="ID" valueNumeric="5"/>
+            <column name="UUID" value="5"/>
+            <column name="PRODUCT_NAME" value="Knäckebrot"/>
+            <column name="DESCRIPTION" value="Snack"/>
+            <column name="COST" value="0.69"/>
+            <column name="PRICE" value="0.90"/>
+            <column name="TOTAL" value="30"/>
+        </insert>
+        <insert tableName="PRODUCTS">
+            <column name="ID" valueNumeric="6"/>
+            <column name="UUID" value="6"/>
+            <column name="PRODUCT_NAME" value="Müller Kakao"/>
+            <column name="DESCRIPTION" value="Getraenk"/>
+            <column name="COST" value="0.89"/>
+            <column name="PRICE" value="1.20"/>
+            <column name="TOTAL" value="10"/>
+        </insert>
+        <insert tableName="PRODUCTS">
+            <column name="ID" valueNumeric="7"/>
+            <column name="UUID" value="7"/>
+            <column name="PRODUCT_NAME" value="Milch"/>
+            <column name="DESCRIPTION" value="Getraenk"/>
+            <column name="COST" value="0.69"/>
+            <column name="PRICE" value="0.90"/>
+            <column name="TOTAL" value="10"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

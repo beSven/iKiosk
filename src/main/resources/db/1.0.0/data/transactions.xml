@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="1.0.0-data-transactions" author="Sven Berthold">
+        <insert tableName="TRANSACTIONS">
+            <column name="ID" valueNumeric="1"/>
+            <column name="UUID" value="1"/>
+            <column name="TIMESTAMP" valueDate="2020-03-01"/>
+            <column name="DESCRIPTION" value="Einzahlung"/>
+            <column name="AMOUNT" valueNumeric="30"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="USER_ID" value="1"/>
+        </insert>
+        <insert tableName="TRANSACTIONS">
+            <column name="ID" valueNumeric="2"/>
+            <column name="UUID" value="2"/>
+            <column name="TIMESTAMP" valueDate="2020-03-01"/>
+            <column name="DESCRIPTION" value="Einzahlung"/>
+            <column name="AMOUNT" valueNumeric="20"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="USER_ID" value="2"/>
+        </insert>
+        <insert tableName="TRANSACTIONS">
+            <column name="ID" valueNumeric="3"/>
+            <column name="UUID" value="3"/>
+            <column name="TIMESTAMP" valueDate="2020-03-01"/>
+            <column name="DESCRIPTION" value="Einzahlung"/>
+            <column name="AMOUNT" valueNumeric="10"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="USER_ID" value="3"/>
+        </insert>
+        <insert tableName="TRANSACTIONS">
+            <column name="ID" valueNumeric="4"/>
+            <column name="UUID" value="4"/>
+            <column name="TIMESTAMP" valueDate="2020-03-01"/>
+            <column name="DESCRIPTION" value="Einzahlung"/>
+            <column name="AMOUNT" valueNumeric="15"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="USER_ID" value="4"/>
+        </insert>
+        <insert tableName="TRANSACTIONS">
+            <column name="ID" valueNumeric="5"/>
+            <column name="UUID" value="5"/>
+            <column name="TIMESTAMP" valueDate="2020-03-01"/>
+            <column name="DESCRIPTION" value="Kauf Knoppers"/>
+            <column name="AMOUNT" valueNumeric="-0.90"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="USER_ID" value="1"/>
+            <column name="PRODUCT_ID" value="1"/>
+        </insert>
+        <insert tableName="TRANSACTIONS">
+            <column name="ID" valueNumeric="6"/>
+            <column name="UUID" value="6"/>
+            <column name="TIMESTAMP" valueDate="2020-03-02"/>
+            <column name="DESCRIPTION" value="Kauf Kolle Mate"/>
+            <column name="AMOUNT" valueNumeric="-1.90"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="USER_ID" value="1"/>
+            <column name="PRODUCT_ID" value="4"/>
+        </insert>
+        <insert tableName="TRANSACTIONS">
+            <column name="ID" valueNumeric="7"/>
+            <column name="UUID" value="7"/>
+            <column name="TIMESTAMP" valueDate="2020-03-13"/>
+            <column name="DESCRIPTION" value="Kauf Hanuta"/>
+            <column name="AMOUNT" valueNumeric="-0.90"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="USER_ID" value="3"/>
+            <column name="PRODUCT_ID" value="3"/>
+        </insert>
+        <insert tableName="TRANSACTIONS">
+            <column name="ID" valueNumeric="8"/>
+            <column name="UUID" value="8"/>
+            <column name="TIMESTAMP" valueDate="2020-03-13"/>
+            <column name="DESCRIPTION" value="Kauf Hanuta"/>
+            <column name="AMOUNT" valueNumeric="-0.90"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="USER_ID" value="3"/>
+            <column name="PRODUCT_ID" value="3"/>
+        </insert>
+        <insert tableName="TRANSACTIONS">
+            <column name="ID" valueNumeric="9"/>
+            <column name="UUID" value="9"/>
+            <column name="TIMESTAMP" valueDate="2020-03-15"/>
+            <column name="DESCRIPTION" value="Einzahlung"/>
+            <column name="AMOUNT" valueNumeric="90"/>
+            <column name="ACTIVE" valueBoolean="false"/>
+            <column name="USER_ID" value="4"/>
+        </insert>
+        <insert tableName="TRANSACTIONS">
+            <column name="ID" valueNumeric="10"/>
+            <column name="UUID" value="10"/>
+            <column name="TIMESTAMP" valueDate="2020-03-15"/>
+            <column name="DESCRIPTION" value="Storno und Korrektur"/>
+            <column name="AMOUNT" valueNumeric="-9"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="USER_ID" value="4"/>
+        </insert>
+        <insert tableName="TRANSACTIONS">
+            <column name="ID" valueNumeric="11"/>
+            <column name="UUID" value="11"/>
+            <column name="TIMESTAMP" valueDate="2020-03-17"/>
+            <column name="DESCRIPTION" value="Kauf Kaffee"/>
+            <column name="AMOUNT" valueNumeric="-20"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+            <column name="USER_ID" value="987123654"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

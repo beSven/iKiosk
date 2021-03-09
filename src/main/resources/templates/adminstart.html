@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymleaf.org">
+
+<head>
+  <!-- Required meta tags -->
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+
+  <!-- Bootstrap CSS -->
+  <link crossorigin="anonymous"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        rel="stylesheet"/>
+  <!-- Own CSS-File -->
+  <link href="/css/style.css" rel="stylesheet" th:href="@{/css/style.css}"/>
+
+  <!-- Icons, Fonts CSS from https://fontawesome.com -->
+  <link href="/css/all.css" rel="stylesheet" th:href="@{/css/all.css}"/>
+
+  <title>iKiosk</title>
+</head>
+
+<body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script crossorigin="anonymous"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<div class="container-md">
+
+  <!-- Header with logo an date -->
+  <div class="row">
+    <div class="col-7">
+      <img src="/logo_besven_group_weiss-orange.png" title="logo" alt="logo"/>
+    </div>
+    <div class="col-2">
+      <p th:text="${#dates.format(currentDate, 'dd.MMM yyyy HH:mm')}"></p>
+    </div>
+  </div>
+
+
+  <!-- Userbar with name of the user, their credit and buttons -->
+
+  <div class="d-flex">
+    <div class="col-6">
+      <h1 th:text="'Hallo Administrator'"/>
+
+      <!-- The message should deliver the user-credit -->
+      <p th:text="'In der Kasse sind aktuell: ' + ${bank}"/>
+    </div>
+
+    <div class="col">
+
+      <!-- Admins get back to kiosk -->
+      <a href="#"
+         type="button"
+         class="btn btn-default"
+         th:text="Kiosk"
+         th:href="@{/kiosk/(userUuid=${user.uuid})}"/>
+
+      <!-- Logout-button -->
+      <a href="#"
+         type="button"
+         class="btn btn-danger"
+         th:text="Abmelden"
+         th:href="@{/logout}"/>
+    </div>
+  </div>
+
+  <!-- Navigation for admins -->
+  <div class="d-flex justify-content-around">
+
+    <!-- Area to show & edit products -->
+    <a href="#"
+       type="button"
+       class="btn btn-default"
+       th:text="Bestand"
+       th:href="@{/admin/bestand/(uuid=${user.uuid})}"/>
+
+    <!-- The bank :-) -->
+    <a href="#"
+       type="button"
+       class="btn btn-default"
+       th:text="Kasse"
+       th:href="@{/admin/kasse/(uuid=${user.uuid})}"/>
+
+    <!-- Area to show & edit users -->
+    <a href="#"
+       type="button"
+       class="btn btn-default"
+       th:text="Kiosk"
+       th:href="@{/admin/user/(uuid=${user.uuid})}"/>
+  </div>
+
+  <!-- Manipulation area -->
+  <div class="d-flex justify-content-around">
+
+    <!-- Createbutton -->
+
+    <a type="button"
+       th:href="@{/admin/bestand/(uuid=${user.uuid})}">
+      <i class="fa fa-plus"></i>
+    </a>
+
+
+    <!-- Editbutton -->
+    <a type="button"
+       th:href="@{/admin/kasse/(uuid=${user.uuid})}">
+      <i class="fa fa-edit"></i>
+    </a>
+
+    <!-- Deletebutton -->
+    <a type="button"
+       th:href="@{/admin/user/(uuid=${user.uuid})}">
+      <i class="fa fa-times"></i>
+    </a>
+  </div>
+
+  <!--  -->
+  <div class="d-flex justify-content-around">
+    <div class="container-md">
+      <div class="row">
+        <table class="table">
+          <thead>
+          <tr>
+            <th class="col-1" scope="row">#</th>
+            <th scope="row">Datum</th>
+            <th scope="row">Zeit</th>
+            <th scope="row">Benutzer</th>
+            <th scope="row">Aktion</th>
+            <th scope="row">Wert</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="transaction, iterStat : ${transactions}" th:class="${iterStat.odd}? 'odd'">
+            <td scope="row" th:text="${iterStat.count}"></td>
+            <td th:text="${#dates.format(transaction.timestamp, 'dd.MM.yyyy')}"></td>
+            <td th:text="${#dates.format(transaction.timestamp, 'HH:mm')}"></td>
+            <td th:text="${transaction.user.lastName}"></td>
+            <td th:text="${transaction.description}"></td>
+            <td th:text="${transaction.amount}"></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="row">
+    <p>©2020 besven Group GmbH & Co. KG
+  </div>
+</div>
+</body>
+</html>

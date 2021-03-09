@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="1.0.0-tables-products" author="Sven Berthold">
+        <createTable tableName="PRODUCTS">
+            <column name="ID" type="NUMERIC(20,0)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PRODUCTS"/>
+            </column>
+            <column name="PRODUCT_NAME" type="VARCHAR(250)"/>
+            <column name="UUID" type="VARCHAR(250)"/>
+            <column name="DESCRIPTION" type="VARCHAR(250)"/>
+            <column name="COST" type="NUMERIC(10,2)"/>
+            <column name="PRICE" type="NUMERIC(10,2)"/>
+            <column name="PICTURE" type="BLOB"/>
+            <column name="TOTAL" type="NUMERIC(10,0)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

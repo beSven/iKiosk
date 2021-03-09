@@ -1,0 +1,18 @@
+:homepage: http://besven.de
+
+:keywords: software-development, kiosk, besven
+
+:numbered!:
+
+**Über den iKiosk**
+
+[role="lead"]
+iKiosk, die Anwendung für die Verwaltung der Kaffeekasse.
+
+Erstellt von Sven Berthold mit Mentor EGG und seinem Team.
+
+Erstveröffentlichung: v.0.9, Mai 2020
+
+(C)
+We acknowledge that this document uses material from the arc42 architecture template, http://www.arc42.de.
+Created by Dr. Peter Hruschka & Dr. Gernot Starke.

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="1.0.0-tables-users" author="Sven Berthold">
+        <createTable tableName="USERS">
+            <column name="ID" type="NUMERIC(20,0)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_USERS"/>
+            </column>
+            <column name="UUID" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FIRST_NAME" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LAST_NAME" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USERNAME" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ADMIN" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACTIVE" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PIN" type="VARCHAR(8)"/>
+            <column name="PICTURE" type="BLOB"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

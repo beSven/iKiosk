@@ -1,0 +1,119 @@
+[[section-introduction-and-goals]]
+==	Einführung und Ziele
+
+Die Firma besven GmbH & Co. KG möchte die handschriftlich geführte Strichliste der Kaffeekasse
+durch eine zeitgemäße digitale Variante ersetzen.
+Die fertige Anwendung soll als WebApplikation von einem Tablet in der Küche/Snackbar,
+sowie vom Arbeitsplatz der Administratoren aufgerufen werden können.
+
+Der iKiosk(AT) soll allen Mitarbeitenden Zugriff auf eine Artikelliste gewähren,
+die in gewünschter Anzahl gekauft werden können.
+Des Weiteren sollen User in einer Historie ihre Käufe und Geldbewegungen einsehen sowie den Stand ihres
+Guthaben leicht überwachen können.
+
+Benutzer_innen mit Adminrechten sollen User und Artikel verwalten können sowie Geldeingänge in die Kasse bestätigen,
+damit der Betrag dem User als Guthaben für Käufe zur Verfügung steht.
+Eine Übersicht die Anzahl der verfügbaren Artikel soll aus der Transaktionenliste errechnet und leicht
+einzusehen sein.
+
+=== Aufgabenstellung
+
+.Inhalt
+Der iKiosk(AT) soll als Java WebApplication mit dem Buildtool Maven und dem Framework SpringBoot erstellt werden. +
+Als Datenbank wird eine Postgres-DB verwendet, die während der Entwicklungsphase auf dem lokalen Rechner der
+Entwickler mit Docker installiert wird. +
+Datenbankaufgaben sollen in SpringBoot mit JPA und den Erweiterungen Hibernate und Liquibase realisiert werden. +
+Mittels Bootstrap-Template soll ein responsives Webdesign gewährleistet werden.
+
+.Motivation
+Auch die Kaffeekasse soll in einem Unternehmen der Software-Entwicklung dem Zeitgeist entsprechen und als
+moderne WebApplication das Klemmbrett mit einer teils abgegriffenen Papierliste ersetzen.
+
+.Form
+Als Startseite ist eine Profilauswahl über Kacheln für alle Benutzer vorgesehen. +
+Nach Auswahl des Profils und Eingabe einer Pin über ein Modal, gelangen die User in den Userbereich,
+wo das zur verfügbare Gutgaben leicht erkennbar ist und die zum Kauf angebotenen Artikel in Kacheln dargestellt
+werden. +
+Der Kauf eines Artikel soll per Auswahl, Eingabe der gewünschten Anzahl und Bestätigungsbutton unkompliziert
+vonstatten gehen. +
+Des Weiteren soll der User, über eine Auswahl per Button, seine Transaktionshistorie einsehen können.
+
+Benutzer mit Adminrechten sollen schnell zu einer User-, Artikel- und Kassenverwaltung kommen.
+Dazu gehört das Editieren, Erstellen und Löschen von Usern bzw. Artikeln und Korrekturen in der Kasse bei
+Ein- und Auszahlung bzw. Einkauf zum Bestand auffüllen.
+
+=== Qualitätsziele
+
+.Für die Benutzer
+
+* leichte, intuitive Benutzbarkeit
+* Vermeidung von Rechen- und Buchungsfehlern der manuell geführten Strichliste
+* digitale Dokumentation und Nachverfolgbarkeit des Geldflusses
+* Reduzierung von Papieraufwand
+
+
+[cols="1,1,2", options="header"]
+.Für die Softwarearchitektur
+|===
+|Nr.
+|Ziel
+|Motivation und Umsetzung
+
+|1
+|Verständlichkeit
+|-> Verringerung des Pflegeaufwand
+
+=> durch selbsterklärende Variablen +
+=> Kommentierung von Klassen, Methoden und Variablen
+
+|2
+|Modularität
+|-> Austausch-, bzw. Erweiterbarkeit durch Module
+
+=> Methoden mit ähnlichen Aufgaben in Klassen sortieren +
+=> nur eine Methode zielgerichtet für eine Ausgabe bzw. ein bestimmtes Ergebnis
+
+|3
+|Wartbarkeit
+|-> einfache Wartbarkeit
+
+=> durch hohe Verständlichkeit +
+=> durch Modularisierung
+
+|4
+|Effizienz
+|-> schnell und trotzdem Ressourcenschonend
+
+=>
+|5
+|Portabilität
+|-> Einsatz auf unterschiedlichen Betriebssystemen und Clients
+
+=> plattformübergreifende Programmiersprache verwenden +
+=> als WebApplikation entwickeln
+
+|===
+
+=== Stakeholder
+
+[cols="1,1,2" options="header"]
+|===
+|Rolle
+|Kontakt
+|Erwartungshaltung
+
+|Projektbetreuer, Mentor
+|EGG +
+<eg@iso>_
+|-> Einhaltung firmeninterner Richtlinien +
+-> Einhaltung Qualitätsziele
+-> Entlastung bei der Kaffeekassenverwaltung
+
+| Benutzer der Anwendung
+| Mitarbeiter der Firma besven GmbH & Co. KG +
+<https://www.besven.de>
+|-> hohe Verständlichkeit, +
+-> intuitive Bedienung, +
+-> keine Fehler bei Berechnung des Guthaben, +
+-> kein erhöhter Zeitaufwand
+|===

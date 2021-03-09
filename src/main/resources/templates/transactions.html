@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymleaf.org">
+<head>
+  <!-- Required meta tags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous"/>
+  <link rel="stylesheet"
+        href="../static/css/style.css" th:href="@{/css/style.css}"/>
+
+  <title>iKiosk</title>
+</head>
+<body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<!-- Header with logo an date -->
+<div class="container-md">
+  <div class="row">
+    <div class="col-7">
+      <a href="/">
+        <img src="/logo_besven_group_weiss-orange.png" title="logo" alt="logo"/></a>
+    </div>
+    <div class="col-2">
+      <p th:text="${#dates.format(currentDate, 'dd.MMM yyyy HH:mm')}"></p>
+    </div>
+  </div>
+</div>
+
+<!-- Userbar with name of the user, their credit and buttons -->
+<div class="container-md">
+  <div class="row">
+    <div class="col-6">
+      <h1 th:text="'Hallo ' + ${user.firstName}"/>
+
+      <!-- The message should deliver the user-credit -->
+      <p th:text="'Dein aktuelles Guthaben beträgt: ' + ${userCredit}"/>
+    </div>
+    <div class="col">
+
+      <!-- User with adminflag get an button for reach an admin-area -->
+      <a href="#"
+         th:if="${user.admin == true}"
+         type="button"
+         class="btn btn-default"
+         th:text="Administration"
+         th:href="@{/admin(uuid=${user.uuid})}"/>
+      <a href="#" th:if="${user.admin == false}" hidden="hidden"/>
+
+      <!-- Button to reach the transaction-history -->
+      <a href="#"
+         type="button"
+         class="btn btn-default"
+         th:text="Bestellhistorie"
+         th:href="@{/transactions/(userUuid=${user.uuid})}"/>
+
+      <!-- Logout-button -->
+      <a href="#"
+         type="button"
+         class="btn btn-danger"
+         th:text="Abmelden"
+         th:href="@{/logout}"/>
+    </div>
+  </div>
+</div>
+
+<!-- Mainarea to list the user transactions -->
+<div class="container-md">
+  <div class="row">
+    <table class="table">
+      <thead>
+      <tr>
+        <th class="col-1" scope="row">#</th>
+        <th scope="row">Datum</th>
+        <th scope="row">Zeit</th>
+        <th scope="row">Aktion</th>
+        <th scope="row">Wert</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="transaction, iterStat : ${transactions}" th:class="${iterStat.odd}? 'odd'">
+        <td scope="row" th:text="${iterStat.count}"></td>
+        <td th:text="${#dates.format(transaction.timestamp, 'dd.MM.yyyy')}"></td>
+        <td th:text="${#dates.format(transaction.timestamp, 'HH:mm')}"></td>
+        <td th:text="${transaction.description}"></td>
+        <td th:text="${transaction.amount}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="container-md">
+  <div class="row">
+    <p>©2020 besven Group GmbH & Co. KG
+  </div>
+</div>
+
+</body>
+</html>

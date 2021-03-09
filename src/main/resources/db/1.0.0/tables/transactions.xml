@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="1.0.0-tables-transactions" author="Sven Berthold">
+        <createTable tableName="TRANSACTIONS">
+            <column name="ID" type="NUMERIC(20,0)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_TRANSACTIONS_ID"/>
+            </column>
+            <column name="UUID" type="VARCHAR(250)">
+            <constraints nullable="false"/>
+            </column>
+            <column name="TIMESTAMP" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(250)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="AMOUNT" type="NUMERIC(10,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACTIVE" type="BOOLEAN" defaultValueBoolean="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="NUMERIC(20,0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PRODUCT_ID" type="NUMERIC(20,0)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <!-- add foreign key to 'users' table -->
+        <addForeignKeyConstraint baseTableName="TRANSACTIONS"
+                                 baseColumnNames="USER_ID"
+                                 constraintName="FK_TRANSACTIONS_USER"
+                                 referencedTableName="USERS"
+                                 referencedColumnNames="ID"/>
+
+        <!-- add foreign key to 'products' table -->
+        <addForeignKeyConstraint baseTableName="TRANSACTIONS"
+                                 baseColumnNames="PRODUCT_ID"
+                                 constraintName="FK_TRANSACTIONS_PRODUCT"
+                                 referencedTableName="PRODUCTS"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+</databaseChangeLog>
